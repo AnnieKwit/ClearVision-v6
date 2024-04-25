@@ -1,44 +1,38 @@
 /* APP */
-%themeDark {
-  %appMount {
-    background: cv('bg.app.overlay');
-  }
-  %shakeable {
+%appMount {
+  background: cv('bg.app.overlay');
+}
+%shakeable,
+body {
+  background: transparent;
+}
+%bg {
+  background: cv('bg.app.img') cv('bg.app.pos') / cv('bg.app.size') cv('bg.app.repeat') cv('bg.app.attach');
+  @include filters(cv('bg.app'));
+  z-index: -9999;
+}
+%appMount {
+  %layers,
+  %layer {
     background: transparent;
   }
-  %bg {
-    background: cv('bg.app.img') cv('bg.app.pos') / cv('bg.app.size') cv('bg.app.repeat') cv('bg.app.attach');
-    @include filters(cv('bg.app'));
-    z-index: -9999;
+}
+%containerMain {
+  %base {
+    border-radius: 0;
   }
-  %appMount {
-    %layers,
-    %layer {
-      background: transparent;
-    }
+}
+%backdrop {
+  &:after {
+    content: '';
+    position: fixed;
+    @include stretch;
+    background: cv('bg.backdrop.overlay');
+    pointer-events: none;
   }
-  %containerMain {
-    %base {
-      border-radius: 0;
-    }
-  }
-  %backdrop {
-    &:before {
-      content: '';
-      position: fixed;
-      @include stretch;
-      background: cv('bg.backdrop.img') cv('bg.backdrop.pos') / cv('bg.backdrop.size') cv('bg.backdrop.repeat') cv('bg.backdrop.attach');
-      @include filters(cv('bg.backdrop'));
-      pointer-events: none;
-    }
-    &:after {
-      content: '';
-      position: fixed;
-      @include stretch;
-      background: cv('bg.backdrop.overlay');
-      pointer-events: none;
-    }
-  }
+}
+%backdrop%backdropWithLayer {
+  background: none !important;
 }
 
 %loading {
@@ -57,8 +51,8 @@
   &:before {
     height: 26px;
     width: 26px;
-    border-left-color: var(--main-color);
-    border-right-color: var(--main-color);
+    border-left-color: $main-color;
+    border-right-color: $main-color;
   }
   &:after {
     height: 16px;
