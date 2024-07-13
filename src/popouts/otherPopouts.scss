@@ -16,8 +16,7 @@
     border-top: 8px solid hsla(0, 0%, 0%, 0.8);
   }
 }
-%chatToolbarActive,
-%chatToolbarHover:hover {
+%chatToolbarButton:hover {
   background-color: hsla(0, 0%, 100%, 0.05);
 }
 %chatToolbarIcon {
@@ -42,6 +41,28 @@
   }
 }
 
+// VC ACTIVITY STATUS POPOUT
+%vcActivityPopout,
+%vcSetActivityPopout {
+  background-color: var(--popout-color);
+}
+%vcSetActivityPopoutIcon {
+  background-color: hsla(0, 0%, 100%, 0.07);
+  border-color: hsla(0, 0%, 100%, 0.09);
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 0.07);
+    border-color: var(--hover-color);
+  }
+}
+%vcSetActivityPopoutButton {
+  background-color: var(--main-color);
+  border-color: transparent;
+  &:hover {
+    background-color: var(--hover-color);
+    border-color: transparent;
+  }
+}
+
 // STUDENT HUBS
 %hubPopoutSidebar {
   background: transparent;
@@ -60,9 +81,9 @@
     &:first-child {
       border-top: 1px solid hsla(0, 0%, 100%, 0.05);
     }
-  }
-  &:hover {
-    background: hsla(0, 0%, 100%, 0.06);
+    &:hover {
+      background: hsla(0, 0%, 100%, 0.06);
+    }
   }
 }
 
