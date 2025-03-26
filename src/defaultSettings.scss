@@ -10,6 +10,7 @@
   --channel-selected: #fff;
   --channel-muted: rgba(255, 255, 255, 0.1);
   --server-unread: var(--main-color);
+  --background-message-hover: rgba(255, 255, 255, 0.05);
   --url-color: var(--main-color);
   --focus-color: var(--main-color);
   --online-color: #43b581;
@@ -81,6 +82,7 @@
   --home-size: 40px;
   --popout-color: rgba(0, 0, 0, 0.7);
   --modal-color: rgba(0, 0, 0, 0.5);
+  --card-color: rgba(0, 0, 0, 0.4);
   --bd-blue: var(--main-color);
   --bd-blue-hover: var(--hover-color);
   --bd-blue-active: var(--hover-color);

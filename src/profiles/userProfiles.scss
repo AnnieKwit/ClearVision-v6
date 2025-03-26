@@ -24,11 +24,10 @@
 
     // MODAL
     &%userProfileFull {
-      background: hsla(0, 0%, 0%, 0.4);
+      background: cv('bg.general.card');
       &::before {
         content: '';
         position: absolute;
-        @include stretch;
         background: cv('bg.modal.img') cv('bg.modal.pos') / cv('bg.modal.size') cv('bg.modal.repeat') cv('bg.modal.attach');
         @include filters(cv('bg.modal'));
         width: 100%;
@@ -59,16 +58,15 @@
 
   // BANNER
   %userProfileBanner {
-    -webkit-mask: linear-gradient(to bottom, #000, transparent 93%);
     mask: linear-gradient(to bottom, #000, transparent 93%);
   }
 
   // CONTENT
   %userProfileOverlay {
-    background-color: hsla(0, 0%, 0%, 0.4);
+    background-color: cv('bg.general.card');
   }
   %userProfileBadgeList {
-    background-color: hsla(0, 0%, 0%, 0.4);
+    background-color: cv('bg.general.card');
   }
 
   // CONNECTED ACCOUNTS
@@ -92,15 +90,6 @@
       background-color: hsla(0, 0%, 100%, 0.07);
     }
   }
-
-  // MESSAGE
-  html:not(%visualRefreshChatInput) & %userProfileMessage { 
-    background: rgba( 0, 0, 0, 0.6);
-    border-radius: 8px;
-    &:focus {
-      box-shadow: 0 0 2px 2px $main-color;
-    }
-  }
 }
 
 
@@ -108,7 +97,7 @@
 %userProfileCustomTheme {
   %userProfileOverlayScroller {
     &::-webkit-scrollbar-thumb {
-      background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-secondary-color))
+      background-color: (--profile-gradient-secondary-color);
     }
   }
   %userProfileNote {
@@ -116,8 +105,8 @@
       box-shadow: 0 0 2px 2px var(--profile-gradient-primary-color);
     }
   }
-  html:not(%visualRefreshChatInput) & %userProfileMessage {
-    border-radius: 8px;
+  %channelTextArea {
+    background: var(--input-background);
     &:focus-within {
       box-shadow: 0 0 2px 2px var(--profile-gradient-primary-color);
     }
@@ -145,4 +134,9 @@
   > polygon {
     display: none;
   }
+}
+
+// MESSAGE USER
+html:not(%visualRefreshChatInput) %userProfileMessage {
+  background: transparent;
 }
